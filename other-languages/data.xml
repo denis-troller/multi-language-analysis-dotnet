@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- FIXME we should update version to 3.8.1 -->
 <CoverageSession xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Summary numSequencePoints="16898" visitedSequencePoints="3714" numBranchPoints="11388" visitedBranchPoints="1309" sequenceCoverage="21.98" branchCoverage="11.49" maxCyclomaticComplexity="78" minCyclomaticComplexity="1" visitedClasses="347" numClasses="1042" visitedMethods="985" numMethods="4208" minCrapScore="1" maxCrapScore="6162" />
   <Modules>
