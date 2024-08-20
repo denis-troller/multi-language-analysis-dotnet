@@ -38,8 +38,9 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"denis-troller_multi-language-analysis-dotnet" /o:"denis-troller" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          dotnet tool install --global dotnet-coverage
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"denis-troller_multi-language-analysis-dotnet" /o:"denis-troller" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths=unit-testing-using-dotnet-test/coverage.xml
           dotnet build "unit-testing-using-dotnet-test/unit-testing-using-dotnet-test.sln"
-          dotnet dotcover test "unit-testing-using-dotnet-test/unit-testing-using-dotnet-test.sln" --dcReportType=HTML --logger "xunit;LogFileName=xunit_test_result.xml"
+          dotnet test "unit-testing-using-dotnet-test/unit-testing-using-dotnet-test.sln" /p:AltCover=true
           npm --prefix angular-with-coverage run test 
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
