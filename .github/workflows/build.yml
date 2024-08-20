@@ -43,4 +43,4 @@ jobs:
           dotnet build "unit-testing-using-dotnet-test/unit-testing-using-dotnet-test.sln"
           dotnet test "unit-testing-using-dotnet-test/unit-testing-using-dotnet-test.sln" /p:AltCover=true
           npm --prefix angular-with-coverage run test 
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.verbose=true /d:sonar.log.level=DEBUG
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}" 
