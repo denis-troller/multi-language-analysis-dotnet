@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<root2>
+<!-- FIXME we should update version to 3.8.1 -->
+<dependency3>
+  <groupId>org.apache.commons</groupId>
+  <artifactId>commons-lang3</artifactId>
+  <version>3.6</version>
+</dependency3>
+</root2>
