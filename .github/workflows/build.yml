@@ -39,7 +39,7 @@ jobs:
         shell: powershell
         run: |
           dotnet tool install --global dotnet-coverage
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"denis-troller_multi-language-analysis-dotnet" /o:"denis-troller" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"  /d:sonar.opencover.reportsPaths="**/coverage.xml" /d:sonar.cs.opencover.reportsPaths=".\unit-testing-using-dotnet-test\test-coverage.xml" /d:sonar.coverage.exclusions="**/*.js" /d:sonar.exclusions="**/*.js" 
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"denis-troller_multi-language-analysis-dotnet" /o:"denis-troller" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"  /d:sonar.cs.opencover.reportsPaths="..\test-coverage.xml" /d:sonar.coverage.exclusions="**/*.js" /d:sonar.exclusions="**/*.js" 
           dotnet build "unit-testing-using-dotnet-test/unit-testing-using-dotnet-test.sln"
           dotnet test "unit-testing-using-dotnet-test/unit-testing-using-dotnet-test.sln" /p:AltCover=true /p:AltCoverReport=.\unit-testing-using-dotnet-test\test-coverage.xml
           npm --prefix angular-with-coverage run test 
