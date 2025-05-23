@@ -41,6 +41,6 @@ jobs:
           dotnet tool install --global dotnet-coverage
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"denis-troller_multi-language-analysis-dotnet" /o:"denis-troller" /d:sonar.verbose=true /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.opencover.reportsPaths="unit-testing-using-dotnet-test\test-coverage.xml" /d:sonar.cs.xunit.reportsPaths=./TestResults/*.xml
           dotnet build "unit-testing-using-dotnet-test/unit-testing-using-dotnet-test.sln"
-          dotnet test "unit-testing-using-dotnet-test/unit-testing-using-dotnet-test.sln" --results-directory ./TestResults /p:AltCover=true /p:AltCoverReport=..\test-coverage.xml --logger:"trx"
+          dotnet test "unit-testing-using-dotnet-test/unit-testing-using-dotnet-test.sln" --results-directory ./TestResults /p:AltCover=true /p:AltCoverReport=..\test-coverage.xml --logger:"xunit"
           #npm --prefix angular-with-coverage run test 
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}" 
